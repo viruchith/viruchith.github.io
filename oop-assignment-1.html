@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/styles/github-gist.min.css"
+    integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA=="
+    crossorigin="anonymous" />
+<title>Java Assignment - 1</title>
+    <style>
+        body{
+            margin-left: 30px;
+            margin-top:20px;
+        }
+
+        pre{
+            border-radius:5px;
+            border-color:black;
+        }
+
+        .question{
+            font-size: medium;
+        }
+        .answer{
+            margin-left:40px;
+        }
+
+        #details{
+            text-align: right;
+            margin-right: 23px;
+            text-decoration: none;
+            font-size:25px;
+        }
+
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"
+    integrity="sha512-U12+KlhI3X2EY7U4NJZ+O0wujKcaMQZHABtaiZtE8UrPiK1O3Y4cjBe0mMFyyBptdaf+eh45hqNdsayeLQcneg=="
+    crossorigin="anonymous"></script>
+<div id="details" >
+    Name: S. Shri Kamal
+    <br>
+    Regno: 1919102148
+</div>
+<center><h1>Collections Framework Assignment</h1></center>
+<div class="question">
+1. Array Implementation.    
+</div>
+<br>
+<div class="answer">
+<b>
+    <u>Program : </u>
+</b>
+<pre>
+    <code>
+        import java.util.* ;
+
+        public class Main
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        ArrayList<String> al = new ArrayList<String>();
+                #add items into array
+                al.add("One");
+                al.add("Too");
+                al.add("Three");
+                al.add("Four");
+                al.add("Five");
+
+                println("ArrayList : "+al);
+
+                #print size of array
+                println("Size : "+al.size());
+
+                #add item at given position
+                al.add(5,"Six");
+                println("Add at position (5,'Six') : "+al);
+                #check whether array contains specified item
+                println("Contains ('One') : "+al.contains("One"));
+                #check whether array is empty
+                println("Is Empty : "+al.isEmpty());
+                # get index of specified item
+                println("Index Of 3 : "+al.indexOf("Three"));
+                # change value of a item to another
+                println("Set 'Too' to 'Two' : "+al.set(1,"Two"));
+
+                println("ArrayList : "+al);
+
+                println("Iterator values : ");
+                # to iterate the array
+                Iterator<String> it = al.iterator();
+
+                    while(it.hasNext()){
+                    # print next element
+                    println(it.next());
+                    }
+                    #clear the array 
+                    al.clear();
+
+                    println("Clear List : "+al);
+
+
+                    }
+                    }
+
+    </code>
+</pre>
+<br>
+<b>
+    <u>Output : </u>
+</b>
+<br>
+<pre>
+    <code>
+        ArrayList : [One, Too, Three, Four, Five]
+        Size : 5
+        Add at position (5,'Six') : [One, Too, Three, Four, Five, Six]
+        Contains ('One') : true
+        Is Empty : false
+        Index Of 3 : 2
+        Set 'Too' to 'Two' : Too
+        ArrayList : [One, Two, Three, Four, Five, Six]
+        Iterator values :
+        One
+        Two
+        Three
+        Four
+        Five
+        Six
+        Clear List : []
+    </code>
+</pre>
+</div>
+
+
+<div class="question">
+    2. HashMap Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class HashMapMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        HashMap<String,String> hm = new HashMap<String,String>();
+        # put key and value into hashMap
+        hm.put("1","One");
+        hm.put("2","Two");
+        hm.put("3","Three");
+        hm.put("4","Six");
+        hm.put("5","Five");
+
+        println("HashMap : "+hm);
+        #size of HashMap
+        println("Size : "+hm.size());
+        #check whether HashMap contains the given key
+        println("Contains Key ('1') : "+hm.containsKey("1"));
+        #check whether HashMap contains the given value
+        println("Contains Value ('Two') : "+hm.containsValue("Two"));
+        # get the value associated with given key 
+        println("Get ('3') : "+hm.get("3"));
+        # replace the value for the specified key
+        println("Replace ('4','Four') : "+hm.replace("4","Four"));
+        println("HashMap : "+hm);
+        # add key and value to the HashMap if it is absent
+        hm.putIfAbsent("0","Zero");
+
+        println("Put If Absent ('0','Zero') : "+hm);
+        # get a copy the hashMap
+        Object hm_clone = hm.clone();
+
+        println("Clone : "+hm_clone);
+
+        }
+        }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        HashMap : {1=One, 2=Two, 3=Three, 4=Six, 5=Five}
+        Size : 5
+        Contains Key ('1') : true
+        Contains Value ('Two') : true
+        Get ('3') : Three
+        Replace ('4','Four') : Six
+        HashMap : {1=One, 2=Two, 3=Three, 4=Four, 5=Five}
+        Put If Absent ('0','Zero') : {0=Zero, 1=One, 2=Two, 3=Three, 4=Four, 5=Five}
+        Clone : {0=Zero, 1=One, 2=Two, 3=Three, 4=Four, 5=Five}
+    </code>
+</pre>
+</div>
+
+
+
+
+<div class="question">
+    3. HashSet Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class HashSetMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        HashSet<String> hs = new HashSet<String>();
+        # Add items to HashSet
+        hs.add("One");
+        hs.add("Two");
+        hs.add("Three");
+        hs.add("Four");
+        hs.add("Five");
+
+        println("HashSet : "+hs);
+        # get size of HashSet
+        println("Size : "+hs.size());
+        # check whether HashSet contains the specified item
+        println("Contains ('Two') : "+hs.contains("Two"));
+        # check whether HashSet is empty
+        println("Is Empty : "+hs.isEmpty());
+        # remove the specified value from hashSet
+        hs.remove("Five");
+        println("Remove ('Five') : "+hs);
+
+        println("Iterator values : ");
+        # Iterate the HashSet
+        Iterator<String> it = hs.iterator();
+            # get a cloned HashSet
+            Object cloned = hs.clone();
+
+            while(it.hasNext()){
+            println(it.next());
+            }
+            # clear the HashSet
+            hs.clear();
+
+            println("Clear Set : "+hs);
+
+            println("Cloned : "+cloned);
+
+            }
+            }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        HashSet : [Five, One, Four, Two, Three]
+        Size : 5
+        Contains ('Two') : true
+        Is Empty : false
+        Remove ('Five') : [One, Four, Two, Three]
+        Iterator values :
+        One
+        Four
+        Two
+        Three
+        Clear Set : []
+        Cloned : [Two, Three, One, Four]
+    </code>
+</pre>
+</div>
+
+
+
+
+<div class="question">
+    4. HashTable Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class HashTableMethods
+        {
+        public static void main(String[] args) {
+        Hashtable<String,String> ht = new Hashtable<String,String>();
+                # add key value to Hashtable
+                ht.put("1","One");
+                ht.put("2","Two");
+                ht.put("3","Three");
+                ht.put("4","Four");
+                ht.put("5","Five");
+                #check whether HashTable contains specified value
+                System.out.println("contains 'Two' : "+ht.contains("Two"));
+                #check whether HashTable contains specified key
+                System.out.println("contains Key '3' : "+ht.containsKey("3"));
+                #check whether HashTable contains specified value
+                System.out.println("contains Value 'four' : "+ht.containsValue("Four"));
+                # get HashCode of  HashTable
+                System.out.println("HashCode : "+ht.hashCode());
+                # check whether HashTable is empty
+                System.out.println("Is Empty ? : "+ht.isEmpty());
+                # check whether HashTable is empty
+                System.out.println("Size : "+ht.size());
+
+
+                # get the key list as a string
+                System.out.println("Keys : "+ht.keySet().toString());
+                # get the values as a list
+                System.out.println("Values : "+ht.values());
+            
+                System.out.println("Contains 5 ? : "+ht.contains(5));
+                # remove the key value pair of given key
+                System.out.println("Remove 5 : "+ht.remove("5"));
+
+                System.out.println("After removing 5 : "+ht);
+
+
+
+
+
+
+                }
+                }
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        contains 'Two' : true
+        contains Key '3' : true
+        contains Value 'four' : true
+        HashCode : 85336635
+        Is Empty ? : false
+        Size : 5
+        Keys : [5, 4, 3, 2, 1]
+        Values : [Five, Four, Three, Two, One]
+        Contains 5 ? : false
+        Remove 5 : Five
+        After removing 5 : {4=Four, 3=Three, 2=Two, 1=One}
+        </code>
+</pre>
+</div>
+
+
+
+
+<div class="question">
+    5. LinkedHashSet Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class LinkedHashSetMethods
+        {
+        public static void main(String[] args) {
+
+        LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+                # add node to LinkedHashSet
+                lhs.add("One");
+                lhs.add("Two");
+                lhs.add("Three");
+                lhs.add("Four");
+                lhs.add("Five");
+
+                System.out.println("The LinkedHashSet : "+lhs);
+                # check whether LinkedHashSet is empty
+                System.out.println("Is Empty ? : "+lhs.isEmpty());
+                # check whether linkedHashSet contains given value
+                System.out.println("Contains 'Two' ? : "+lhs.contains("Two"));
+                # get hashCode of LinkedHashSet
+                System.out.println("HashCode : "+lhs.hashCode());
+                # get size of LinkedHashSet
+                System.out.println("Size : "+lhs.size());
+                # Remove specified item from LinkedHashSet
+                System.out.println("Remove 'One' : "+lhs.remove("One"));
+                System.out.println("After removing 'One' : "+lhs);
+                System.out.println("Is Empty ? : "+lhs.isEmpty());
+                System.out.println("To String : "+lhs.toString());
+
+
+
+                }
+                }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        The LinkedHashSet : [One, Two, Three, Four, Five]
+        Is Empty ? : false
+        Contains 'Two' ? : true
+        HashCode : 85336584
+        Size : 5
+        Remove 'One' : true
+        After removing 'One' : [Two, Three, Four, Five]
+        Is Empty ? : false
+        To String : [Two, Three, Four, Five]
+        </code>
+</pre>
+</div>
+
+
+
+
+<div class="question">
+    6. LinkedList Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class LinkedListMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        LinkedList<String> li = new LinkedList<String>();
+                # add node to LinkedList
+                li.add("One");
+                li.add("Two");
+                li.add("Three");
+                li.add("Four");
+                li.add("Five");
+
+                println("LinkedList : "+li);
+                # add node to the start
+                li.addFirst("Zero");
+                println("Add First ('Zero') : "+li);
+                # add node to the last
+                li.addLast("Six");
+                println("Add Last ('Six') : "+li);
+                println("LinkedList : "+li);
+                # get head node
+                println("Peek First : "+li.peekFirst());
+                # get tail node
+                println("Peek Last : "+li.peekLast());
+                # remove the node at given position
+                println("Remove (0) : "+li.remove(0));
+                println("LinkedList : "+li);
+                # remove node having the specified element
+                println("Remove ('Six') : "+li.remove("Six"));
+                println("LinkedList : "+li);
+
+                println("Size : "+li.size());
+                # add given item to the last
+                println("Offer ('Six') : "+li.offer("Six"));
+                println("LinkedList : "+li);
+
+
+                }
+                }
+
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        LinkedList : [One, Two, Three, Four, Five]
+        Add First ('Zero') : [Zero, One, Two, Three, Four, Five]
+        Add Last ('Six') : [Zero, One, Two, Three, Four, Five, Six]
+        LinkedList : [Zero, One, Two, Three, Four, Five, Six]
+        Peek First : Zero
+        Peek Last : Six
+        Remove (0) : Zero
+        LinkedList : [One, Two, Three, Four, Five, Six]
+        Remove ('Six') : true
+        LinkedList : [One, Two, Three, Four, Five]
+        Size : 5
+        Offer ('Six') : true
+        LinkedList : [One, Two, Three, Four, Five, Six]
+        </code>
+</pre>
+</div>
+
+
+
+
+
+<div class="question">
+    7. PriorityQueue Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class PriorityQueueMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        PriorityQueue<String> pq = new PriorityQueue<String>();
+            # add given item to the PriorityQueue
+                pq.add("One");
+                pq.add("Two");
+                pq.add("Three");
+                pq.add("Four");
+                pq.add("Five");
+
+                println("PriorityQueue : "+pq);
+                # get the HashCode of PriorityQueue
+                println("HashCode : "+pq.hashCode());
+                # get the size of the PriorityQueue
+                println("Size : "+pq.size());
+                # check whether PriorityQueue is empty
+                println("Is Empty ? : "+pq.isEmpty());
+                # get the first item 
+                println("Peek : "+pq.peek());
+                # check whether the PriorityQueue contains the item
+                println("Contains ('One') : "+pq.contains("One"));
+                # Remove the item from the PriorityQueue
+                println("Remove ('Three') : "+pq.remove("Three"));
+                println("PriorityQueue : "+pq);
+                # add the specified item to the last
+                println("Offer ('Six') : "+pq.offer("Six"));
+
+                println("PriorityQueue : "+pq);
+
+
+                }
+                }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        PriorityQueue : [Five, Four, Three, Two, One]
+        HashCode : 705927765
+        Size : 5
+        Is Empty ? : false
+        Peek : Five
+        Contains ('One') : true
+        Remove ('Three') : true
+        PriorityQueue : [Five, Four, One, Two]
+        Offer ('Six') : true
+        PriorityQueue : [Five, Four, One, Two, Six]
+
+        </code>
+</pre>
+</div>
+
+
+
+
+
+<div class="question">
+    8. Stack Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class StackMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        Stack<String> st = new Stack<String>();
+                # add item to the Stack
+                st.push("One");
+                st.push("Two");
+                st.push("Three");
+                st.push("Four");
+                st.push("Five");
+
+                println("Stack : "+st);
+                println("Push ('Six') : "+st.push("Six"));
+                println("Stack : "+st);
+                # remove item from the top
+                println("Pop : "+st.pop());
+                println("Stack : "+st);
+                # get the position of the specified item
+                println("Search ('Three') : "+st.search("Three"));
+                # get the size of the stack
+                println("Size : "+st.size());
+                # get the capacity of the stack
+                println("Capacity : "+st.capacity());
+                println("HashCode : "+st.hashCode());
+                # get the indexOf the specified item
+                println("Index Of 'Two' : "+st.indexOf("Two"));
+                # remove the item at the specified index
+                println("Remove At (0) : "+st.remove(0));
+
+                println("Stack : "+st);
+
+                }
+                }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <br>
+    <pre>
+    <code>
+        Stack : [One, Two, Three, Four, Five]
+        Push ('Six') : Six
+        Stack : [One, Two, Three, Four, Five, Six]
+        Pop : Six
+        Stack : [One, Two, Three, Four, Five]
+        Search ('Three') : 3
+        Size : 5
+        Capacity : 10
+        HashCode : -1010478461
+        Index Of 'Two' : 1
+        Remove At (0) : One
+        Stack : [Two, Three, Four, Five]
+        </code>
+</pre>
+</div>
+
+
+
+
+<div class="question">
+    9. TreeMap Implementation.
+</div>
+<br>
+<div class="answer">
+    <b>
+        <u>Program : </u>
+    </b>
+    <pre>
+    <code>
+        import java.util.* ;
+
+        public class TreeMapMethods
+        {
+        static void println(Object o){
+        System.out.println(o);
+        }
+
+        public static void main(String[] args) {
+
+        TreeMap<String,String> tm = new TreeMap<String,String>();
+                # add the key, value pair to the TreeMap 
+                tm.put("1","One");
+                tm.put("2","Two");
+                tm.put("3","Three");
+                tm.put("4","Four");
+                tm.put("5","Five");
+
+                println("TreeMap : "+tm);
+                # get the Size of the TreeMap
+                println("Size : "+tm.size());
+                # get the first occuring value for key 
+                println("Ceiling Key ('0') : "+tm.ceilingKey("0"));
+                # get the first occuring pair
+                println("Ceiling Entry('0') : "+tm.ceilingEntry("0"));
+                # get the first pair in the TreeMap
+                println("First Entry : "+tm.firstEntry());
+                # get the last pair in the TreeMap
+                println("Last Entry : "+tm.lastEntry());
+
+                println("HashCode : "+tm.hashCode());
+                # get the first key from the TreeMap
+                println("FirstKey : "+tm.firstKey());
+                # get the last key from the TreeMap
+                println("LasttKey : "+tm.lastKey());
+
+                println("Contains Key ('1') : "+tm.containsKey("1"));
+                println("Contains Value ('One') : "+tm.containsValue("One"));
+
+                }
+                }
+
+    </code>
+</pre>
+    <br>
+    <b>
+        <u>Output : </u>
+    </b>
+    <pre>
+    <code>
+       TreeMap : {1=One, 2=Two, 3=Three, 4=Four, 5=Five}
+       Size : 5
+       Ceiling Key ('0') : 1
+       Ceiling Entry('0') : 1=One
+       First Entry : 1=One
+       Last Entry : 5=Five
+       HashCode : 85336635
+       FirstKey : 1
+       LasttKey : 5
+       Contains Key ('1') : true
+       Contains Value ('One') : true
+
+        </code>
+</pre>
+</div>
+
+
+
+
+
+
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
